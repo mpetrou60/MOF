@@ -5,12 +5,12 @@ This desk robot was designed to kep me (anyone) entertained when there is no one
 ### How to set up the service
 These are the commands I use to make sure the service runs nice and smoothly (in terminal). After running these the bot should work without needing a monitor connected to it and the code should run on startup
 
-systemctl --user daemon-reload               # after any changes to the .service file
-systemctl --user restart assistant.service   # restart it
-systemctl --user stop assistant.service      # stop it
-systemctl --user enable assistant.service    # enable it to run on start-up
-systemctl --user start assistant.service     # start it
-systemctl --user status assistant.service    # check if it's running + recent logs
+systemctl --user daemon-reload               # after any changes to the .service file <br/>
+systemctl --user restart assistant.service   # restart it <br/>
+systemctl --user stop assistant.service      # stop it <br/>
+systemctl --user enable assistant.service    # enable it to run on start-up <br/>
+systemctl --user start assistant.service     # start it <br/>
+systemctl --user status assistant.service    # check if it's running + recent logs <br/>
 
 > [!NOTE]
 > The service has already been setup (TODO: add the relevant files for the service setup)
