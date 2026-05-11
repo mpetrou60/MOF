@@ -3,7 +3,7 @@
 This desk robot was designed to kep me (anyone) entertained when there is no one else in the office... 
 
 ### How to set up the service
-These are the commands I use to make sure the service runs nice and smoothly (in terminal). After running these the bot should work without needing a monitor connected to it and the code should run on startup
+These are the commands I use to make sure the service runs nice and smoothly (in terminal). After running these the bot should work without needing a monitor connected to it and the code should run on startup. Always "enable" before you "start".
 
 ```
 systemctl --user daemon-reload               # after any changes to the .service file <br/>
@@ -16,9 +16,6 @@ systemctl --user status assistant.service    # check if it's running + recent lo
 
 > [!NOTE]
 > The service has already been setup (TODO: add the relevant files for the service setup)
-
-> [!WARNING]
-> Current bugs: the eyes crash out
 
 ### Virtual Environment
 Set up a virtual environment with all required libraries
