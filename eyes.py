@@ -12,23 +12,22 @@ def run():
 
     try:
         spi = busio.SPI(board.SCLK, MOSI=board.MOSI)
-        disp = st7789.ST7789(...)
+        
+        # Force framebuffer size + window offsets
+        disp = st7789.ST7789(
+            spi,
+            cs=cs_pin,
+            dc=dc_pin,
+            rst=reset_pin,
+            width=128,   # visible width
+            height=160,  # visible height
+            x_offset=2,  # try 0 first
+            y_offset=2,  # adjust if screen shifted
+            rotation=270
+        )
     except Exception as e:
         print(f"Display init failed: {e}")
         return  # Exit gracefully instead of crashing
-
-    # Force framebuffer size + window offsets
-    disp = st7789.ST7789(
-        spi,
-        cs=cs_pin,
-        dc=dc_pin,
-        rst=reset_pin,
-        width=128,   # visible width
-        height=160,  # visible height
-        x_offset=2,  # try 0 first
-        y_offset=2,  # adjust if screen shifted
-        rotation=270
-    )
 
     # Create full image
     image = Image.new("RGB", (disp.height, disp.width), (255, 255, 255))
@@ -76,6 +75,8 @@ def run():
             matrix[6:9, 5] = 0
             matrix[6:9, 13] = 0
             matrix[6:9, 14] = 0
+
+        return matrix
 
     def draw_matrix(avatar):
 
